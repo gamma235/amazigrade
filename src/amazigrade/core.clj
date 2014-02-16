@@ -16,7 +16,7 @@
   "augments all the elements in all of the vectors in a grades list into their corresponding weighted values"
   (mapv (partial percentify-vector [10.0 20.0 15.0 25.0 30.0]) grades))
 
-;; time to use these functions to good use
+;; time to put these functions to good use
 
 (def class-1
   (augment-vectors data/grades-1))
