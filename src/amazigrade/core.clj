@@ -1,6 +1,7 @@
 (ns amazigrade.core
   (:require [amazigrade.data :as data]))
 
+
 ;; Defining some helper functions to get things going.
 
 (defn percentify
@@ -25,8 +26,6 @@
 (def augmented-grades
   (augment-vectors data/grades))
 
-
-
 (mapv #(apply + %) augmented-grades)
 
 
@@ -41,7 +40,6 @@
 
 (def class-finals
 (zipmap data/nums final-grades))
-
 
 
 ;; Now we need to reorder the list to match the excel file sent by the university and round the numbers.
