@@ -29,7 +29,7 @@
 (mapv #(apply + %) augmented-grades)
 
 
-;; Using list comprehension and "macro magic" we can refactor this code into something much more consise!
+;; Using "macro magic" we can refactor this code into something much more consise!
 
 
 (def final-grades
