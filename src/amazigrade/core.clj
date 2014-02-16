@@ -1,5 +1,5 @@
 (ns amazigrade.core
-  (:require [amazigrade.data :as data] :reload))
+  (:require [amazigrade.data :as data]))
 
 ;; Defining some helper functions to get things going.
 
