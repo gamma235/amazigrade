@@ -1,6 +1,12 @@
 (ns amazigrade.data)
 
-;; the numbers ordered according to my classlists
+;; It is convenient and more organized to keep a data-file that you can refer to as you work.
+;; The numbers included here are just samples and should be changed according to your needs.
+;; They are spaced this way for convenience in copying and pasting into excel.
+
+
+
+;; the student's class numbers, ordered according to my classlists
 
 (def nums [
 1129
@@ -41,7 +47,7 @@
 
 
 
-;; The official class lists are in a different order
+;; It might sometimes happen that the official class lists are in a different order.
 
 (def official-nums
 [1063
@@ -117,3 +123,44 @@
  	[50	60	55	61	70]
  	[50	65	55	71	65]
  	[0 0 0 0 0]])
+
+
+;; If you already know the final grades, but you want to store them in your data-file for subsequent modifications (e.g. bell-curves)
+
+(def class-finals
+[80
+81
+70
+75
+77
+72
+76
+78
+74
+85
+75
+66
+77
+71
+74
+84
+90
+80
+87
+76
+73
+90
+86
+71
+74
+70
+89
+74
+70
+71
+71
+76
+79
+76
+75
+66 ] )
