@@ -1,25 +1,25 @@
 # amazigrade
 
 A Clojure library designed to help teachers with their grading
+
 ## Usage
 
-After requiring the library you can simply plug in your vector of percentage weights into the following final-grades definition and then map a couple functions to your data, depending on what you want to get returned. In the following example, 
-
-the code in part 1 casts vector of desired weights to each of the grades in a predefined "grades" vector in the external "data" file. In part 2 we map the class-finals onto the offical class-list to reorder the data as needed. Finally, the round function is called on this new list to return the final grades as integers that will be submitted to the students.  
+Simply plug your values into the data.clj file and then use the functions in core.clj as needed. In this example we are using predefined functions and bindings to transform the info from the data file and repackage it into a way that we can easily copy and paste into an excel file. The 0.5 is a coefficient that determines how drastically the data is transformed. Play and have fun!
 
 
-part 1
 
-    (def final-grades
-    (->> data/grades (map (partial percentify-vector [10.0 20.0 15.0 25.0 30.0])) (mapv #(apply + %))))
+    (->> (bell-curve final-grades 0.5)
+         (map #(+ (- 75 (class-average final-grades)) %))
+         (map round)
+         (map int))
 
-part 2
 
-    (map round (map class-finals data/official-nums))
+
+If this is not clear, please read the comments in the data.clj and core.clj files.    
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
