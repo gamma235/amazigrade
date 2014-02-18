@@ -14,6 +14,9 @@
   [pvec gvec]
   (mapv percentify gvec pvec))
 
+
+;;change the percentage weights according to each grade in your data/grades vectors.
+
 (defn augment-vectors
   "augments all the elements in all of the vectors in a grades list into their corresponding weighted values"
   [grades]
