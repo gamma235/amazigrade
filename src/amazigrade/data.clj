@@ -6,6 +6,13 @@
 
 
 
+
+;;change weights according to the percentage weight needed for each grade in your data/grades vectors.
+
+(def weights
+  [10.0 20.0 15.0 25.0 30.0])
+
+
 ;; the student's class numbers, ordered according to my classlists
 
 (def nums [
