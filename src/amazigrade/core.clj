@@ -60,7 +60,7 @@
 
 ;; Now we can easily associate the class numbers of the students with their corresponding grades in a map of key/value pairs, using zipmap.
 
-(def class-finals
+(def nums&finals
 (zipmap data/nums final-grades))
 
 
