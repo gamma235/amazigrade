@@ -17,7 +17,7 @@
 (defn augment-vectors
   "augments all the elements in all of the vectors in a grades list into their corresponding weighted values"
   [grades]
-  (mapv (partial percentify-vector weights) grades))
+  (mapv (partial percentify-vector data/weights) grades))
 
 (defn round
   "As we are using Java data-structures, I am reaching for Java-interop here to wrap simple round function in Clojure."
@@ -84,7 +84,7 @@
 
 ;; Do this if you need to reorder the list to match the excel file. And don't forget to round the numbers and convert them to integers!
 
-(map int (map round (map class-finals data/official-nums)))
+(map int (map round (map nums&finals data/official-nums)))
 
 
 ;; What if you want to set the class average to 75 and position the rest of the grades around that average?
