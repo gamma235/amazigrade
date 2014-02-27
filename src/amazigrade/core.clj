@@ -20,7 +20,7 @@
   (mapv (partial percentify-vector data/weights) grades))
 
 (defn round
-  "As we are using Java data-structures, I am reaching for Java-interop here to wrap simple round function in Clojure."
+  "I am reaching for Java-interop here to wrap simple round function in Clojure."
   [number]
   (.setScale (bigdec number) 0 java.math.RoundingMode/HALF_EVEN))
 
@@ -48,8 +48,7 @@
   (->> grades (map (partial #(bellify coef % grades)))))
 
 
-;; Using "macro magic" we can bring much of the above into something very readable. Abstracting out final-grades is useful
-;; if you don't yet know the final grades and need to calculate them for use with other functions.
+;; Abstracting out final-grades is useful if you don't yet know the final grades and need to calculate them for use with other functions.
 ;; If you already know the class' final grades you can easily place them in the data.clj file under data/class-finals
 ;; and call on them as needed for bell-curves and other simple transformations. Just make sure they are ordered correctly!
 
@@ -62,41 +61,3 @@
 
 (def nums&finals
 (zipmap data/nums final-grades))
-
-
-
-(comment
-;; Let's see it in action! You can play with the coefficient values, then add or subtract as needed.
-;; In this example, we have a coefficient of -0.5, which will contract the grade list around the average.
-
-(map int (map round (bell-curve final-grades -0.5)))
-
-
-;; Now we'll dock 5 points across the board.
-
-(map #(+ -5 %) final-grades)
-
-
-;; How about both?
-
-(map int (map round (map #(+ -5 %) (bell-curve final-grades -0.5))))
-
-
-;; Do this if you need to reorder the list to match the excel file. And don't forget to round the numbers and convert them to integers!
-
-(map int (map round (map nums&finals data/official-nums)))
-
-
-;; What if you want to set the class average to 75 and position the rest of the grades around that average?
-
-(map int (map round (map #(+ (- 75 (class-average final-grades)) %) final-grades)))
-
-
-;; making it pretty with the thread-last macro and for fun we'll add in the bell-curve function too...
-
-(->> (bell-curve final-grades 0.5)
-     (map #(+ (- 75 (class-average final-grades)) %))
-     (map round)
-     (map int))
-
-  )
